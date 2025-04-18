@@ -17,6 +17,7 @@ public static class Player
         if (CurrentLocation.Name == "Home" && !Conditions.IsTrue(ConditionTypes.ReadJonNote))
         {
             TextDisplay.TypeLine("You feel like you should check if there's anything important on the note before you leave.");
+            TextDisplay.TypeLine("Try the [take] and [use] commands.");
             return;
         }
         
