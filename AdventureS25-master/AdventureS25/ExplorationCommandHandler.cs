@@ -20,6 +20,7 @@ public static class ExplorationCommandHandler
             {"talk", Talk},
             {"drink", Drink},
             {"use", Use},
+            {"pet", Pet},
             {"beerme", SpawnBeerInInventory},
             {"unbeerme", UnSpawnBeerInInventory},
             {"puke", Puke},
@@ -159,5 +160,10 @@ public static class ExplorationCommandHandler
     private static void Use(Command command)
     {
         Player.Use(command);
+    }
+    
+    private static void Pet(Command command)
+    {
+        Player.Pet(command);
     }
 }

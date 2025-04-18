@@ -50,6 +50,10 @@ public static class Conditions
         Condition readJonNote = new Condition(ConditionTypes.ReadJonNote);
         readJonNote.AddToActivateList(ConditionActions.WriteOutput("You now know that Professor Jon wants to meet you at the Fusion Lab."));
         Add(readJonNote);
+        
+        // Add condition for having Sandie Pal
+        Condition hasSandiePal = new Condition(ConditionTypes.HasSandiePal);
+        Add(hasSandiePal);
     }   
     
     public static void ChangeCondition(ConditionTypes conditionType,

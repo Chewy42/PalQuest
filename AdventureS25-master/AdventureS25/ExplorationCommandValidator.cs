@@ -3,7 +3,7 @@ namespace AdventureS25;
 public static class ExplorationCommandValidator
 {
     public static List<string> Verbs = new List<string>
-        {"go", "eat", "take", "drop", "drink", "use", "talk"};
+        {"go", "eat", "take", "drop", "drink", "use", "talk", "pet"};
     
     public static List<string> StandaloneVerbs = new List<string>
     {

@@ -112,7 +112,8 @@ public static class ConversationCommandHandler
         {
             TextDisplay.TypeLine("Sandie jumps excitedly and follows you now.");
             
-            // Add Sandie to player's pals collection (would need implementation)
+            // Add Sandie to player's pals collection and set the condition
+            Conditions.ChangeCondition(ConditionTypes.HasSandiePal, true);
             TextDisplay.TypeLine("You've received Sandie the Corgi Pal!");
             
             TextDisplay.TypeLine("Type 'leave' to end the conversation.");
@@ -138,7 +139,8 @@ public static class ConversationCommandHandler
             TextDisplay.TypeLine("\"What? Not take Sandie? I'm afraid that's not an option!\"");
             TextDisplay.TypeLine("\"Sandie has already chosen you, and a Pal's choice is final.\"");
             
-            // Add Sandie to player's pals collection anyway
+            // Add Sandie to player's pals collection anyway and set the condition
+            Conditions.ChangeCondition(ConditionTypes.HasSandiePal, true);
             TextDisplay.TypeLine("You've received Sandie the Corgi Pal!");
             
             TextDisplay.TypeLine("Type 'leave' to end the conversation.");
