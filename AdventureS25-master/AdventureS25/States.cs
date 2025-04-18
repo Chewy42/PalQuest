@@ -33,6 +33,6 @@ public static class States
         CurrentState = states[stateType];
         CurrentStateType = stateType;
         
-        TextDisplay.TypeLine("Changing to state " + stateType);
+        // Line removed: no longer printing state changes
     }
 }

@@ -26,6 +26,33 @@ public static class TextDisplay
     };
 
     /// <summary>
+    /// Displays ASCII art with minimal delay for faster rendering, can be skipped with key press
+    /// </summary>
+    /// <param name="text">The ASCII art text to display</param>
+    public static void TypeAsciiArt(string text)
+    {
+        // Use a minimal delay (1ms) for ASCII art
+        const int minimalDelay = 1;
+        
+        // Check if a key was pressed to allow skipping
+        foreach (char c in text)
+        {
+            // Check if a key is available and skip the animation if pressed
+            if (Console.KeyAvailable)
+            {
+                Console.ReadKey(true); // Clear the key
+                Console.Write(text);    // Output all text at once
+                Console.WriteLine();    // Add final newline
+                return;                 // Exit the method
+            }
+            
+            Console.Write(c);
+            Thread.Sleep(minimalDelay);
+        }
+        Console.WriteLine();
+    }
+
+    /// <summary>
     /// Displays text character by character with a delay between each character
     /// </summary>
     /// <param name="text">The text to display</param>

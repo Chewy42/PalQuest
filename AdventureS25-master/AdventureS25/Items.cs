@@ -43,9 +43,9 @@ public static class Items
         nameToItem.Add("puke", puke);
         
         // tell the map to add the item at a specific location
-        Map.AddItem(sword.Name, "Entrance");
-        Map.AddItem(apple.Name, "Entrance");
-        Map.AddItem(spear.Name, "Entrance");
+        Map.AddItem(sword.Name, "Home");
+        Map.AddItem(apple.Name, "Home");
+        Map.AddItem(spear.Name, "Home");
         Map.AddItem(donut.Name, "Storage");
         Map.AddItem(beer.Name, "Throne Room");
     }

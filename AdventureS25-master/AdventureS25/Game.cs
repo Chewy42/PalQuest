@@ -6,7 +6,7 @@ public static class Game
     {
         Initialize();
 
-        TextDisplay.TypeLine(Player.GetLocationDescription());
+        Console.WriteLine(Player.GetLocationDescription());
         
         bool isPlaying = true;
         

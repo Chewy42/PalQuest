@@ -1,4 +1,4 @@
-﻿namespace AdventureS25;
+namespace AdventureS25;
 
 public class Location
 {
@@ -36,7 +36,7 @@ public class Location
 
     public string GetDescription()
     {
-        string fullDescription = name + "\n" + Description;
+        string fullDescription = Description;
 
         foreach (Item item in Items)
         {

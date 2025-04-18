@@ -16,7 +16,7 @@ public static class Player
         if (CurrentLocation.CanMoveInDirection(command))
         {
             CurrentLocation = CurrentLocation.GetLocationInDirection(command);
-            TextDisplay.TypeLine(CurrentLocation.GetDescription());
+            Console.WriteLine(CurrentLocation.GetDescription());
         }
         else
         {
