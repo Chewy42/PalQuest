@@ -1,4 +1,4 @@
-﻿namespace AdventureS25;
+namespace AdventureS25;
 
 public static class ExplorationCommandValidator
 {
@@ -36,7 +36,7 @@ public static class ExplorationCommandValidator
                 }
                 else
                 {
-                    Console.WriteLine("I don't know how to do that.");
+                    TextDisplay.TypeLine("I don't know how to do that.");
                 }
             }
             else if (IsNoun(command.Noun))
@@ -51,7 +51,7 @@ public static class ExplorationCommandValidator
         }
         else
         {
-            Console.WriteLine("I don't know the word " + command.Verb + ".");
+            TextDisplay.TypeLine("I don't know the word " + command.Verb + ".");
         }
             
         return isValid;

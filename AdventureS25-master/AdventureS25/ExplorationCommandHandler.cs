@@ -1,4 +1,4 @@
-﻿namespace AdventureS25;
+namespace AdventureS25;
 
 public static class ExplorationCommandHandler
 {
@@ -89,7 +89,7 @@ public static class ExplorationCommandHandler
         List<string> verbs = ExplorationCommandValidator.GetVerbs();
         foreach (string verb in verbs)
         {
-            Console.WriteLine(verb);
+            TextDisplay.TypeLine(verb);
         }
     }
 
@@ -98,7 +98,7 @@ public static class ExplorationCommandHandler
         List<string> nouns = ExplorationCommandValidator.GetNouns();
         foreach (string noun in nouns)
         {
-            Console.WriteLine(noun);
+            TextDisplay.TypeLine(noun);
         }
     }
 
@@ -111,7 +111,7 @@ public static class ExplorationCommandHandler
         }
         else
         {
-            Console.WriteLine("I don't know how to do that.");
+            TextDisplay.TypeLine("I don't know how to do that.");
         }
     }
     
@@ -147,7 +147,7 @@ public static class ExplorationCommandHandler
 
     public static void Eat(Command command)
     {
-        Console.WriteLine("Eating..." + command.Noun);
+        TextDisplay.TypeLine("Eating..." + command.Noun);
     }
 
     public static void Move(Command command)

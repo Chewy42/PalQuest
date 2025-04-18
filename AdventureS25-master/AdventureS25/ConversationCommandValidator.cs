@@ -1,4 +1,4 @@
-﻿namespace AdventureS25;
+namespace AdventureS25;
 
 public static class ConversationCommandValidator
 {
@@ -9,7 +9,7 @@ public static class ConversationCommandValidator
         {
             return true;
         }
-        Console.WriteLine("Valid commands are: y, n, leave");
+        TextDisplay.TypeLine("Valid commands are: y, n, leave");
         return false;
     }
 }

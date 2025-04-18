@@ -1,4 +1,4 @@
-﻿namespace AdventureS25;
+namespace AdventureS25;
 
 public static class Game
 {
@@ -6,7 +6,7 @@ public static class Game
     {
         Initialize();
 
-        Console.WriteLine(Player.GetLocationDescription());
+        TextDisplay.TypeLine(Player.GetLocationDescription());
         
         bool isPlaying = true;
         
@@ -18,7 +18,7 @@ public static class Game
             {
                 if (command.Verb == "exit")
                 {
-                    Console.WriteLine("Game Over!");
+                    TextDisplay.TypeLine("Game Over!");
                     isPlaying = false;
                 }
                 else

@@ -1,4 +1,4 @@
-﻿namespace AdventureS25;
+namespace AdventureS25;
 
 public static class ConversationCommandHandler
 {
@@ -21,17 +21,17 @@ public static class ConversationCommandHandler
 
     private static void Yes(Command command)
     {
-        Console.WriteLine("You agreed");
+        TextDisplay.TypeLine("You agreed");
     }
     
     private static void No(Command command)
     {
-        Console.WriteLine("You are disagreed");
+        TextDisplay.TypeLine("You are disagreed");
     }
 
     private static void Leave(Command command)
     {
-        Console.WriteLine("You are dead");
+        TextDisplay.TypeLine("You are dead");
         States.ChangeState(StateTypes.Exploring);
     }
 }

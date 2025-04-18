@@ -1,4 +1,4 @@
-﻿namespace AdventureS25;
+namespace AdventureS25;
 
 public static class CommandProcessor
 {
@@ -6,6 +6,10 @@ public static class CommandProcessor
     {
         // get input
         string rawInput = GetInput();
+        while (string.IsNullOrWhiteSpace(rawInput))
+        {
+            rawInput = GetInput(false);
+        }
         
         // make sure two words
         Command command = Parser.Parse(rawInput);
@@ -23,10 +27,28 @@ public static class CommandProcessor
         return command;
     }
     
-    public static string GetInput()
+    public static string GetInput(bool printPrompt = true)
     {
-        Console.Write("> ");
-        string input = Console.ReadLine();
+        if (printPrompt) Console.Write("> ");
+        var inputBuilder = new System.Text.StringBuilder();
+        System.ConsoleKeyInfo keyInfo;
+        while (true)
+        {
+            keyInfo = System.Console.ReadKey(true);
+            if (keyInfo.Key == System.ConsoleKey.Enter)
+            {
+                if (inputBuilder.Length == 0)
+                    continue;
+                break;
+            }
+            inputBuilder.Append(keyInfo.KeyChar);
+            Console.Write(keyInfo.KeyChar);
+        }
+        string input = inputBuilder.ToString();
+        if (input.Length > 0)
+        {
+            Console.WriteLine();
+        }
         return input;
     }
 }

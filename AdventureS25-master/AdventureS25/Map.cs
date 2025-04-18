@@ -1,4 +1,4 @@
-﻿namespace AdventureS25;
+namespace AdventureS25;
 
 public static class Map
 {
@@ -80,7 +80,7 @@ public static class Map
         // if the locations don't exist
         if (start == null || end == null)
         {
-            Console.WriteLine("Tried to create a connection between unknown locations: " +
+            TextDisplay.TypeLine("Tried to create a connection between unknown locations: " +
                               startLocationName + " and " + endLocationName);
             return;
         }
@@ -95,7 +95,7 @@ public static class Map
         
         if (start == null)
         {
-            Console.WriteLine("Tried to remove a connection from an unknown location: " +
+            TextDisplay.TypeLine("Tried to remove a connection from an unknown location: " +
                               startLocationName);
             return;
         }

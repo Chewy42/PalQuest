@@ -1,4 +1,4 @@
-﻿namespace AdventureS25;
+namespace AdventureS25;
 
 public static class Player
 {
@@ -16,11 +16,11 @@ public static class Player
         if (CurrentLocation.CanMoveInDirection(command))
         {
             CurrentLocation = CurrentLocation.GetLocationInDirection(command);
-            Console.WriteLine(CurrentLocation.GetDescription());
+            TextDisplay.TypeLine(CurrentLocation.GetDescription());
         }
         else
         {
-            Console.WriteLine("You can't move " + command.Noun + ".");
+            TextDisplay.TypeLine("You can't move " + command.Noun + ".");
         }
     }
 
@@ -36,22 +36,22 @@ public static class Player
 
         if (item == null)
         {
-            Console.WriteLine("I don't know what " + command.Noun + " is.");
+            TextDisplay.TypeLine("I don't know what " + command.Noun + " is.");
         }
         else if (!CurrentLocation.HasItem(item))
         {
-            Console.WriteLine("There is no " + command.Noun + " here.");
+            TextDisplay.TypeLine("There is no " + command.Noun + " here.");
         }
         else if (!item.IsTakeable)
         {
-            Console.WriteLine("The " + command.Noun + " can't be taked.");
+            TextDisplay.TypeLine("The " + command.Noun + " can't be taked.");
         }
         else
         {
             Inventory.Add(item);
             CurrentLocation.RemoveItem(item);
             item.Pickup();
-            Console.WriteLine("You take the " + command.Noun + ".");
+            TextDisplay.TypeLine("You take the " + command.Noun + ".");
         }
     }
 
@@ -59,15 +59,15 @@ public static class Player
     {
         if (Inventory.Count == 0)
         {
-            Console.WriteLine("You are empty-handed.");
+            TextDisplay.TypeLine("You are empty-handed.");
         }
         else
         {
-            Console.WriteLine("You are carrying:");
+            TextDisplay.TypeLine("You are carrying:");
             foreach (Item item in Inventory)
             {
                 string article = SemanticTools.CreateArticle(item.Name);
-                Console.WriteLine(" " + article + " " + item.Name);
+                TextDisplay.TypeLine(" " + article + " " + item.Name);
             }
         }
     }
@@ -84,17 +84,17 @@ public static class Player
         if (item == null)
         {
             string article = SemanticTools.CreateArticle(command.Noun);
-            Console.WriteLine("I don't know what " + article + " " + command.Noun + " is.");
+            TextDisplay.TypeLine("I don't know what " + article + " " + command.Noun + " is.");
         }
         else if (!Inventory.Contains(item))
         {
-            Console.WriteLine("You're not carrying the " + command.Noun + ".");
+            TextDisplay.TypeLine("You're not carrying the " + command.Noun + ".");
         }
         else
         {
             Inventory.Remove(item);
             CurrentLocation.AddItem(item);
-            Console.WriteLine("You drop the " + command.Noun + ".");
+            TextDisplay.TypeLine("You drop the " + command.Noun + ".");
         }
 
     }
@@ -103,7 +103,7 @@ public static class Player
     {
         if (command.Noun == "beer")
         {
-            Console.WriteLine("** drinking beer");
+            TextDisplay.TypeLine("** drinking beer");
             Conditions.ChangeCondition(ConditionTypes.IsDrunk, true);
             RemoveItemFromInventory("beer");
             AddItemToInventory("beer-bottle");
@@ -140,7 +140,7 @@ public static class Player
         // if there's no location with that name
         if (newLocation == null)
         {
-            Console.WriteLine("Trying to move to unknown location: " + locationName + ".");
+            TextDisplay.TypeLine("Trying to move to unknown location: " + locationName + ".");
             return;
         }
             
