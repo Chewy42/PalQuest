@@ -32,7 +32,7 @@ public static class TextDisplay
     public static void TypeAsciiArt(string text)
     {
         // Use a minimal delay (1ms) for ASCII art
-        const int minimalDelay = 1;
+        const int minimalDelay = 5;
         
         // Check if a key was pressed to allow skipping
         foreach (char c in text)
