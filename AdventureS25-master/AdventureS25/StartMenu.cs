@@ -77,8 +77,19 @@ namespace AdventureS25
         private void StartJourney()
         {
             Console.Clear();
-            Console.Write("What is your name, adventurer?\n> ");
-            string? playerName = Console.ReadLine();
+            string? playerName = "";
+            
+            // Loop until the player enters a valid name
+            while (string.IsNullOrWhiteSpace(playerName))
+            {
+                Console.Write("What is your name, adventurer?\n> ");
+                playerName = Console.ReadLine();
+                
+                if (string.IsNullOrWhiteSpace(playerName))
+                {
+                    Console.WriteLine("Please enter a name to continue.");
+                }
+            }
 
             TextDisplay.TypeLine("");
             TextDisplay.TypeLine($@"

@@ -7,10 +7,10 @@ public static class Items
     
     public static void Initialize()
     {
-        Item sword = new Item("sword",
-            "long sword", 
-            "There is a long sword stuck in a rock here.");
-        nameToItem.Add("sword", sword);
+        Item note = new Item("note",
+            "a note", 
+            "There is a note here.");
+        nameToItem.Add("note", note);
         
         Item donut = new Item("donut",
             "A giant concrete donut that you can't take", 
@@ -43,9 +43,7 @@ public static class Items
         nameToItem.Add("puke", puke);
         
         // tell the map to add the item at a specific location
-        Map.AddItem(sword.Name, "Home");
-        Map.AddItem(apple.Name, "Home");
-        Map.AddItem(spear.Name, "Home");
+        Map.AddItem(note.Name, "Home");
         Map.AddItem(donut.Name, "Storage");
         Map.AddItem(beer.Name, "Throne Room");
     }

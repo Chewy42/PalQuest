@@ -19,6 +19,7 @@ public static class ExplorationCommandHandler
             {"explore", ChangeToExploreState},
             {"talk", ChangeToTalkState},
             {"drink", Drink},
+            {"use", Use},
             {"beerme", SpawnBeerInInventory},
             {"unbeerme", UnSpawnBeerInInventory},
             {"puke", Puke},
@@ -153,5 +154,10 @@ public static class ExplorationCommandHandler
     public static void Move(Command command)
     {
         Player.Move(command);
+    }
+    
+    private static void Use(Command command)
+    {
+        Player.Use(command);
     }
 }

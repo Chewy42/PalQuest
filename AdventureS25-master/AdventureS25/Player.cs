@@ -131,6 +131,45 @@ public static class Player
         }
         Inventory.Remove(item);
     }
+    
+    public static bool HasItemInInventory(Item item)
+    {
+        return Inventory.Contains(item);
+    }
+
+    public static void Use(Command command)
+    {
+        string itemName = command.Noun;
+        Item item = Items.GetItemByName(itemName);
+        
+        // Check if the item exists
+        if (item == null)
+        {
+            TextDisplay.TypeLine("I don't see a " + itemName + ".");
+            return;
+        }
+        
+        // Check if the item is in the player's inventory
+        if (!HasItemInInventory(item))
+        {
+            TextDisplay.TypeLine("You don't have a " + itemName + " in your inventory.");
+            return;
+        }
+        
+        // Handle different items
+        if (itemName == "note")
+        {
+            TextDisplay.TypeLine("You read the note. It says:");
+            TextDisplay.TypeLine("\"You have been chosen. Follow the path to the throne room to learn about your destiny.\"");
+            // Remove the note from inventory after reading it
+            RemoveItemFromInventory(itemName);
+            TextDisplay.TypeLine("The note crumbles to dust after you read it.");
+        }
+        else
+        {
+            TextDisplay.TypeLine("You can't figure out how to use the " + itemName + ".");
+        }
+    }
 
     public static void MoveToLocation(string locationName)
     {
