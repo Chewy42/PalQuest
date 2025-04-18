@@ -1,10 +1,16 @@
-﻿namespace AdventureS25;
+namespace AdventureS25;
 
 class Program
 {
     public static void Main(string[] args)
     {
+        var startMenu = new StartMenu();
         
-        Game.PlayGame();
+        bool startGame = startMenu.Show();
+        
+        if (startGame)
+        {
+            Game.PlayGame();
+        }
     }
 }
