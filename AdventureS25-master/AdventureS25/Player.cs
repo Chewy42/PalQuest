@@ -13,6 +13,13 @@ public static class Player
 
     public static void Move(Command command)
     {
+        // Check if player is trying to leave Home without reading Jon's note
+        if (CurrentLocation.Name == "Home" && !Conditions.IsTrue(ConditionTypes.ReadJonNote))
+        {
+            TextDisplay.TypeLine("You feel like you should check if there's anything important on the note before you leave.");
+            return;
+        }
+        
         if (CurrentLocation.CanMoveInDirection(command))
         {
             CurrentLocation = CurrentLocation.GetLocationInDirection(command);
@@ -103,11 +110,71 @@ public static class Player
     {
         if (command.Noun == "beer")
         {
-            TextDisplay.TypeLine("** drinking beer");
+            TextDisplay.TypeLine("Drinking...");
             Conditions.ChangeCondition(ConditionTypes.IsDrunk, true);
-            RemoveItemFromInventory("beer");
-            AddItemToInventory("beer-bottle");
         }
+        else
+        {
+            TextDisplay.TypeLine("Can't drink that.");
+        }
+    }
+    
+    public static void Talk(Command command)
+    {
+        string npcName = command.Noun;
+        
+        // If no NPC name provided, check for any NPCs in the current location
+        if (string.IsNullOrEmpty(npcName))
+        {
+            if (CurrentLocation.NPCs.Count == 0)
+            {
+                TextDisplay.TypeLine("There is no one here to talk to.");
+                return;
+            }
+            else if (CurrentLocation.NPCs.Count == 1)
+            {
+                // If there's only one NPC, automatically talk to them
+                NPC npc = CurrentLocation.NPCs[0];
+                StartConversationWith(npc);
+                return;
+            }
+            else
+            {
+                // If multiple NPCs, list them
+                TextDisplay.TypeLine("Who would you like to talk to? Available NPCs:");
+                foreach (NPC npc in CurrentLocation.NPCs)
+                {
+                    TextDisplay.TypeLine("- " + npc.Name);
+                }
+                return;
+            }
+        }
+        
+        // Try to find the NPC in the current location
+        NPC? targetNPC = null;
+        foreach (NPC npc in CurrentLocation.NPCs)
+        {
+            if (npc.Name.ToLower().Contains(npcName.ToLower()))
+            {
+                targetNPC = npc;
+                break;
+            }
+        }
+        
+        if (targetNPC == null)
+        {
+            TextDisplay.TypeLine("There is no one by that name here.");
+            return;
+        }
+        
+        StartConversationWith(targetNPC);
+    }
+    
+    private static void StartConversationWith(NPC npc)
+    {
+        TextDisplay.TypeLine("You approach " + npc.Name + ".");
+        States.ChangeState(StateTypes.Talking);
+        ConversationCommandHandler.StartConversation(npc);
     }
 
     public static void AddItemToInventory(string itemName)
@@ -159,8 +226,12 @@ public static class Player
         // Handle different items
         if (itemName == "note")
         {
-            TextDisplay.TypeLine("You read the note. It says:");
-            TextDisplay.TypeLine("\"You have been chosen. Follow the path to the throne room to learn about your destiny.\"");
+            TextDisplay.TypeLine("You read the note from Professor Jon. It says:");
+            TextDisplay.TypeLine("Dear Adventurer,\n\nI hope this note finds you well. I've heard you're interested in becoming a Pal Tamer, and I want to help you get started. I've been studying a remarkable new Pal specimen that I believe would be perfect for a beginner.\n\nPlease visit me at the Fusion Lab as soon as possible.\n\nRegards,\nProfessor Jon");
+            
+            // Set the ReadJonNote condition
+            Conditions.ChangeCondition(ConditionTypes.ReadJonNote, true);
+            
             // Remove the note from inventory after reading it
             RemoveItemFromInventory(itemName);
             TextDisplay.TypeLine("The note crumbles to dust after you read it.");

@@ -46,21 +46,100 @@ public static class Map
 This is your home. Everything starts here.");
         nameToLocation.Add("Home", home);
         
-        Location storage = new Location("Storage", 
-            "You are in a small storage room. There are lots of things.");
-        nameToLocation.Add("Storage", storage);
+        Location grasslands = new Location("Verdant Grasslands", 
+            @"
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⢀⠀⣠⡾⠿⠹⠟⣲⡿⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⡾⠛⣿⠇⠩⣘⡟⣀⢀⠛⠀⠉⢉⡽⠦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣴⣿⣟⣛⣷⣾⣤⣦⡴⣿⣽⣴⣾⣤⣤⣵⣮⣛⡂⠀⠀⠀⠀⠀⠀⣀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠤⢼⠏
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠚⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣷⣼⢻⠛⣿⣿⡟⣿⣦⢰⣵⣯⣤⣤⠀⠀⠈⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⣈⣀⠝⣽⠝⠋⢰⡿⣿⣿⣦⣏⣷⣿⡞⠋⠈⠀⠌⠐⡖⠁⢰⠻⠽⣤⡀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠈⠻⠁⠀⠀⠀⣠⣶⣾⣯⠹⡦⠑⡆⠀⣀⠐⠛⣿⢿⢇⣽⣿⣿⣶⣾⠀⢀⣬⣇⣆⣀⡀⣶⣳⡆⠀⠀⠀⠀⠀⠐⠿⠁⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣶⡰⢶⣦⢀⣤⣈⣀⠉⣾⡏⠿⣿⢯⣿⣿⣿⡟⠙⢀⡟⠛⠿⣷⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡻⣻⣿⣿⣿⣤⣿⣿⣾⣹⣿⣿⢟⠻⠿⠀⠟⢀⡀⣸⣯⡄⠲⠀⠀⠀⡐⢉⠙⣻⣿⣿⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠐⠻⠿⣟⣻⣿⣧⢯⣽⣿⢫⣶⡾⢿⡧⣠⣮⡴⣽⣿⣋⣁⠔⠉⠣⢨⠣⣲⡿⢿⠿⠟⠃⠀⠀⠀⠀⠀⣀⣤⠀⠀⠀⠀⠀
+⣦⡄⠀⠀⠀⠀⠠⣾⣿⣷⣿⣶⣶⣿⣿⢊⠹⠉⣻⡿⣭⣿⠷⠀⣻⣷⣮⣾⠿⣟⡿⢿⣶⣺⣤⣠⣷⣷⣿⣦⣿⠇⣲⣶⣄⠀⠀⠀⠈⠃⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢨⣿⣿⢿⣿⣿⣟⣙⣩⣯⣿⣿⣿⣿⣧⣿⣶⣿⣿⠿⠙⠈⠚⠀⢀⠀⠉⢟⠻⣍⠋⠐⡉⠉⠁⠄⢙⡟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠐⠻⠻⢻⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣬⣴⠠⠐⣀⣠⡙⣿⡶⠚⡄⣸⢋⡀⠄⠀⢌⢡⣿⡥⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠐⠿⢿⠿⣿⣿⣿⣿⣿⣿⣟⣽⣿⣿⣯⣻⣿⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣰⣬⣿⣿⣤⣐⣍⣻⡾⠅⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⠙⠉⢻⣿⣿⣿⣻⣿⣿⣿⣿⣿⣿⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⠟⣿⣿⣿⣿⣿⣿⣿⠿⠻⠿⢻⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠛⢩⢿⡟⠻⠛⠃⠛⠟⠃⠘⣿⣏⡗⣴⡿⠁⠀⠛⠛⡟⠟⠀⠀⠀⠀⠙⠛⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⢀⣿⡯⣯⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡗⣧⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣹⣿⣿⢿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣼⢿⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⢀⣀⣦⣾⣶⣶⣶⣿⣿⣿⣿⢿⢸⠾⣿⣶⣶⣷⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣠⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣗⣿⡟⣷⢹⣿⣿⣿⣿⣿⣧⣦⣤⣄⣀⡀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢀⠀⣄⣿⣀⣀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣟⣿⣿⡿⣿⣿⣟⡿⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢠⢦⣦⣿⡿⠿⡿⠿⣿⣿⣿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠫⣷⣿⣾⣿⣿⣿⣧⣦⣦⣿⣦⣶⣀⣄⡀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠉⢰⣤⣍⠛⣉⡙⠻⠿⠞⢛⣦⣧⣭⣴⣾⣿⣿⣿⣿⣿⣾⣿⣿⣿⣏⣽⡉⠻⠟⠿⣭⣾⣿⣧⡜⠛⠛⠻⣯⠤⠏⠀⠃⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠙⠟⠈⠀⠉⠃⠀⠀⠀⠀⠀⠘⢮⡿⠟⠛⠛⢿⣿⣿⡿⡛⡿⠿⠄⠉⠁⠀⠀⠺⠟⠏⠁⠈⠁⠐⠛⠓⠚⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠂⠉⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+A lush, open field where grass-type Pals roam freely. The gentle breeze carries sweet scents of wildflowers, and you can see small Pals playing in the tall grass.");
+        nameToLocation.Add("Verdant Grasslands", grasslands);
         
-        Location throne = new Location("Throne Room", 
-            "There is a big ass throne here.");
-        nameToLocation.Add("Throne Room", throne);
+        Location volcano = new Location("Ember Volcano", 
+            "An active volcano with rivers of molten lava flowing down its sides. Fire-type Pals thrive in this scorching environment, basking in the heat that would be unbearable to most creatures.");
+        nameToLocation.Add("Ember Volcano", volcano);
 
-        Location cave = new Location("Cave", "It's a cave.  It's dark.  Dave lives in the cave");
-        nameToLocation.Add("Cave", cave);
+        Location ocean = new Location("Azure Depths", 
+            "A vast underwater realm where water-type Pals swim through colorful coral reefs. Somehow, you can breathe here, and the water feels comfortable against your skin.");
+        nameToLocation.Add("Azure Depths", ocean);
         
-        home.AddConnection("east", storage);
-        storage.AddConnection("west", home);
-        throne.AddConnection("south", home);
-        home.AddConnection("north", throne);
+        Location forest = new Location("Whispering Woods", 
+            "A dense forest with towering trees that block out most sunlight. Bug and grass-type Pals hide among the foliage, and you can hear their calls echoing through the trees.");
+        nameToLocation.Add("Whispering Woods", forest);
+        
+        Location mountain = new Location("Stone Summit", 
+            "A rocky mountain peak where rock and flying-type Pals make their homes. The air is thin up here, but the view of the surrounding lands is breathtaking.");
+        nameToLocation.Add("Stone Summit", mountain);
+        
+        Location cavern = new Location("Crystal Caverns", 
+            "A network of underground caves illuminated by glowing crystals. Ground and dark-type Pals lurk in the shadows, their eyes occasionally reflecting the crystal light.");
+        nameToLocation.Add("Crystal Caverns", cavern);
+        
+        Location laboratory = new Location("Fusion Lab", 
+            @"
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⣠⣞⡟⠙⣧⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣏⠈⠳⡀⠘⡄
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⣿⡀⠙⢷⡄⠹⣄⢹
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣶⣏⣀⢙⣷⣄⣙⣦⣸⣾
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣶⠶⢿⠛⠙⣿⡿⠛⠋⠙⠛⠋⠻⠋⠋⠁                                   
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⡿⣿⠉⢻⡄⠀⣇⣀⡟⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡿⣿⠀⠘⣆⠀⢻⡀⢻⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⡀⠈⠷⣄⠈⢧⠀⢳⣿⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⠀⠙⢶⣄⠙⢦⣀⣷⣾⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣠⣄⣤⣾⣶⢾⣿⣿⣿⣿⠿⢿⡿⠻⠿⠛⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠛⢿⡉⠙⣧⠀⢸⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⡄⠈⢷⡀⠘⡄⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠹⣄⠈⢷⡀⣿⠧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+A high-tech laboratory where scientists study Pal evolution and genetics. Steel and electric-type Pals assist with experiments, moving between complex machinery.");
+        nameToLocation.Add("Fusion Lab", laboratory);
+        
+        Location ruins = new Location("Ancient Ruins", 
+            "The remnants of a civilization that once worshipped Pals as gods. Psychic and ghost-type Pals are drawn to the mysterious energies that still linger here.");
+        nameToLocation.Add("Ancient Ruins", ruins);
+        
+        Location meadow = new Location("Enchanted Meadow", 
+            "A magical clearing where fairy and normal-type Pals gather to play. The air sparkles with mysterious energy, and flowers bloom year-round regardless of season.");
+        nameToLocation.Add("Enchanted Meadow", meadow);
+        
+        Location arena = new Location("Battle Arena", 
+            "A competitive stadium where trainers bring their strongest Pals to compete. Fighting-type Pals train rigorously here, always seeking to improve their skills.");
+        nameToLocation.Add("Battle Arena", arena);
+        
+        Location palCenter = new Location("Pal Center", 
+            "A modern healing facility with state-of-the-art technology for treating injured Pals. The center is staffed by friendly nurses and doctors who can restore your Pals to full health. A large red and white sign hangs above the entrance.");
+        nameToLocation.Add("Pal Center", palCenter);
+        
+        // Connect all locations to home for easy navigation
+        home.AddConnection("north", grasslands);
+        grasslands.AddConnection("south", home);
+        
+        // Connect Pal Center to Verdant Grasslands
+        grasslands.AddConnection("east", laboratory);
+        laboratory.AddConnection("west", grasslands);    
 
         StartLocation = home;
     }
@@ -89,6 +168,43 @@ This is your home. Everything starts here.");
         if (item != null && location != null)
         {
             location.RemoveItem(item);
+        }
+    }
+    
+    public static void AddNPC(string npcName, string locationName)
+    {
+        // find out which Location is named locationName
+        Location? location = GetLocationByName(locationName);
+        NPC? npc = NPCs.GetNPCByName(npcName);
+        
+        // add the NPC to the location
+        if (npc != null && location != null)
+        {
+            location.AddNPC(npc);
+        }
+        else
+        {
+            if (npc == null)
+            {
+                Debugger.Write("Could not find NPC: " + npcName);
+            }
+            if (location == null)
+            {
+                Debugger.Write("Could not find location: " + locationName);
+            }
+        }
+    }
+    
+    public static void RemoveNPC(string npcName, string locationName)
+    {
+        // find out which Location is named locationName
+        Location? location = GetLocationByName(locationName);
+        NPC? npc = NPCs.GetNPCByName(npcName);
+        
+        // remove the NPC from the location
+        if (npc != null && location != null)
+        {
+            location.RemoveNPC(npc);
         }
     }
 

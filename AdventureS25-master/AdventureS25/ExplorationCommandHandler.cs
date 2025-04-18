@@ -17,7 +17,7 @@ public static class ExplorationCommandHandler
             {"verbs", Verbs},
             {"fight", ChangeToFightState},
             {"explore", ChangeToExploreState},
-            {"talk", ChangeToTalkState},
+            {"talk", Talk},
             {"drink", Drink},
             {"use", Use},
             {"beerme", SpawnBeerInInventory},
@@ -70,9 +70,9 @@ public static class ExplorationCommandHandler
         Player.Drink(command);
     }
 
-    private static void ChangeToTalkState(Command obj)
+    private static void Talk(Command command)
     {
-        States.ChangeState(StateTypes.Talking);
+        Player.Talk(command);
     }
     
     private static void ChangeToFightState(Command obj)

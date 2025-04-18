@@ -1,4 +1,4 @@
-﻿using System.Net.Sockets;
+using System.Net.Sockets;
 
 namespace AdventureS25;
 
@@ -45,6 +45,11 @@ public static class Conditions
         isDisconnectedRooms.AddToActivateList(ConditionActions.RemoveMapConnection("Entrance", "north"));
         isDisconnectedRooms.AddToActivateList(ConditionActions.RemoveMapConnection("Throne Room", "south"));
         Add(isDisconnectedRooms);
+        
+        // Add condition for reading Professor Jon's note
+        Condition readJonNote = new Condition(ConditionTypes.ReadJonNote);
+        readJonNote.AddToActivateList(ConditionActions.WriteOutput("You now know that Professor Jon wants to meet you at the Fusion Lab."));
+        Add(readJonNote);
     }   
     
     public static void ChangeCondition(ConditionTypes conditionType,

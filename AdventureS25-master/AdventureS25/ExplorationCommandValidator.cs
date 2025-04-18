@@ -3,12 +3,12 @@ namespace AdventureS25;
 public static class ExplorationCommandValidator
 {
     public static List<string> Verbs = new List<string>
-        {"go", "eat", "take", "drop", "drink", "use"};
+        {"go", "eat", "take", "drop", "drink", "use", "talk"};
     
     public static List<string> StandaloneVerbs = new List<string>
     {
         "exit", "inventory", "look", "tron", "troff",
-        "nouns", "verbs", "fight", "explore", "talk", "beerme", 
+        "nouns", "verbs", "fight", "explore", "beerme", 
         "unbeerme", "puke", "tidyup", "teleport", "connect", "disconnect"
     };
     
@@ -72,6 +72,19 @@ public static class ExplorationCommandValidator
         {
             return true;
         }
+        
+        // Check if the noun is an NPC name or part of an NPC name
+        if (Player.CurrentLocation != null)
+        {
+            foreach (NPC npc in Player.CurrentLocation.NPCs)
+            {
+                if (npc.Name.ToLower().Contains(commandNoun.ToLower()))
+                {
+                    return true;
+                }
+            }
+        }
+        
         return false;
     }
 

@@ -1,4 +1,4 @@
-﻿namespace AdventureS25;
+namespace AdventureS25;
 
 public static class Items
 {
@@ -8,8 +8,8 @@ public static class Items
     public static void Initialize()
     {
         Item note = new Item("note",
-            "a note", 
-            "There is a note here.");
+            "a letter from Professor Jon", 
+            "There is a note from Professor Jon on the table.");
         nameToItem.Add("note", note);
         
         Item donut = new Item("donut",

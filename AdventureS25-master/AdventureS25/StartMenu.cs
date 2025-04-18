@@ -34,18 +34,18 @@ namespace AdventureS25
                 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠛⠿⠿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⠛⠋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
             ");
             Console.WriteLine(@"
-+==============================================================================================+
++===================================================================================================+
 
-   ▄███████▄    ▄████████  ▄█       ████████▄   ███    █▄     ▄████████    ▄████████     ███     
-  ███    ███   ███    ███ ███       ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄ 
-  ███    ███   ███    ███ ███       ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██ 
-  ███    ███   ███    ███ ███       ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀ 
-▀█████████▀  ▀███████████ ███       ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███     
-  ███          ███    ███ ███       ███    ███  ███    ███   ███    █▄           ███     ███     
-  ███          ███    ███ ███▌    ▄ ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███     
- ▄████▀        ███    █▀  █████▄▄██  ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀   
-                          ▀                                                                     
-+==============================================================================================+ 
+   ▄███████▄    ▄████████  ▄█            ████████▄   ███    █▄     ▄████████    ▄████████     ███     
+  ███    ███   ███    ███ ███            ███    ███  ███    ███   ███    ███   ███    ███ ▀█████████▄ 
+  ███    ███   ███    ███ ███            ███    ███  ███    ███   ███    █▀    ███    █▀     ▀███▀▀██ 
+  ███    ███   ███    ███ ███            ███    ███  ███    ███  ▄███▄▄▄       ███            ███   ▀ 
+▀█████████▀  ▀███████████ ███            ███    ███  ███    ███ ▀▀███▀▀▀     ▀███████████     ███     
+  ███          ███    ███ ███            ███    ███  ███    ███   ███    █▄           ███     ███     
+  ███          ███    ███ ███▌    ▄      ███  ▀ ███  ███    ███   ███    ███    ▄█    ███     ███     
+ ▄████▀        ███    █▀  █████▄▄██       ▀██████▀▄█ ████████▀    ██████████  ▄████████▀     ▄████▀   
+                          ▀                                                                           
++===================================================================================================+ 
 ");
             TextDisplay.TypeLine("");
             TextDisplay.TypeLine("1. Start your journey");
@@ -131,7 +131,7 @@ Behold, {playerName}! The gods have bestowed upon you a vessel, a body crafted w
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣠⢀⠁⣂⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣄⡀⡈⠁⣀⣾⣿⣿⣿⣿⣿⣿⣿⣿");
             Console.WriteLine("");
             TextDisplay.TypeLine("Fuck..... It's not perfect, but it does the job.");
-            TextDisplay.TypeLine("Press any key to start your adventure...");
+            TextDisplay.TypeLine("Press any key to start your adventure.");
             Console.Write("> ");
             Console.ReadKey();
         }
@@ -153,7 +153,7 @@ Behold, {playerName}! The gods have bestowed upon you a vessel, a body crafted w
             TextDisplay.TypeLine("mysterious world, battle enemies, and discover");
             TextDisplay.TypeLine("treasures throughout your journey.");
             TextDisplay.TypeLine("");
-            TextDisplay.TypeLine("Press any key to return to the main menu...");
+            TextDisplay.TypeLine("Press any key to return to the main menu.");
             Console.Write("> ");
             Console.ReadKey();
         }
@@ -162,7 +162,7 @@ Behold, {playerName}! The gods have bestowed upon you a vessel, a body crafted w
         {
             Console.Clear();
             TextDisplay.TypeLine("Thank you for playing PalQuest!");
-            TextDisplay.TypeLine("Press any key to exit...");
+            TextDisplay.TypeLine("Press any key to exit.");
             Console.Write("> ");
             Console.ReadKey();
             Environment.Exit(0);
