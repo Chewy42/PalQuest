@@ -227,8 +227,8 @@ public static class Player
         // Handle different items
         if (itemName == "note")
         {
-            TextDisplay.TypeLine("You read the note from Professor Jon. It says:");
-            TextDisplay.TypeLine("Dear Adventurer,\n\nI hope this note finds you well. I've heard you're interested in becoming a Pal Tamer, and I want to help you get started. I've been studying a remarkable new Pal specimen that I believe would be perfect for a beginner.\n\nPlease visit me at the Fusion Lab as soon as possible.\n\nRegards,\nProfessor Jon");
+            TextDisplay.TypeLine("You read the note from Professor Jon.");
+            TextDisplay.TypeLine("Hey y-you, whatever your name is!\n\nListen up fucker! I heard you're trying to become some kind of Pal Tamer or whatever. GOOD NEWS! I'm gonna help you not completely suck at it! I've been studying this AMAZING new Pal specimen that's perfect for beginners.\n\nGet your ass over to my Fusion Lab ASAP!!! Don't make me come find you, because I WILL, and you WON'T like it! This is important SCIENCE happening here!\n\nWubba lubba dub dub!\nProf. Jon (the smartest scientist in this dimension)\n\nP.S. If anyone asks, you never saw this note. THE GOVERNMENT IS WATCHING.");
             
             // Set the ReadJonNote condition
             Conditions.ChangeCondition(ConditionTypes.ReadJonNote, true);
