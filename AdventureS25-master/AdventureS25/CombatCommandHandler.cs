@@ -2,42 +2,87 @@ namespace AdventureS25;
 
 public static class CombatCommandHandler
 {
+    // Mapping all possible battle commands to handlers
     private static Dictionary<string, Action<Command>> commandMap =
         new Dictionary<string, Action<Command>>()
         {
-            {"1", Fight},
-            {"2", Defend},
-            {"3", Potion},
-            {"4", Run},
+            // Battle commands - text only
+            {"attack", Attack},
+            {"defend", Defend},
+            {"special", Special},
+            {"run", Run},
         };
     
     public static void Handle(Command command)
     {
-        if (commandMap.ContainsKey(command.Verb))
+        // Convert to lowercase for case-insensitive matching
+        string verb = command.Verb.ToLower();
+        
+        if (commandMap.ContainsKey(verb))
         {
-            Action<Command> action = commandMap[command.Verb];
-            action.Invoke(command);
+            commandMap[verb].Invoke(command);
+        }
+        else
+        {
+            TextDisplay.TypeLine("Valid battle commands are: attack, defend, special, or run.");
         }
     }
 
-    private static void Fight(Command command)
+    // Individual command methods for better reusability
+    private static void Attack(Command command)
     {
-        TextDisplay.TypeLine("You fight it in the face parts");
+        if (PalBattle.IsBattleActive)
+        {
+            // Create a standardized command for the battle system
+            Command attackCommand = new Command { Verb = "attack", Noun = "" };
+            PalBattle.HandleBattleCommand(attackCommand);
+        }
+        else
+        {
+            TextDisplay.TypeLine("There's no active battle right now.");
+            States.ChangeState(StateTypes.Exploring);
+        }
     }
     
     private static void Defend(Command command)
     {
-        TextDisplay.TypeLine("You defend it in the face parts");
+        if (PalBattle.IsBattleActive)
+        {
+            Command defendCommand = new Command { Verb = "defend", Noun = "" };
+            PalBattle.HandleBattleCommand(defendCommand);
+        }
+        else
+        {
+            TextDisplay.TypeLine("There's no active battle right now.");
+            States.ChangeState(StateTypes.Exploring);
+        }
     }
-
-    private static void Potion(Command command)
+    
+    private static void Special(Command command)
     {
-        TextDisplay.TypeLine("You quaff the potion parts");
+        if (PalBattle.IsBattleActive)
+        {
+            Command specialCommand = new Command { Verb = "special", Noun = "" };
+            PalBattle.HandleBattleCommand(specialCommand);
+        }
+        else
+        {
+            TextDisplay.TypeLine("There's no active battle right now.");
+            States.ChangeState(StateTypes.Exploring);
+        }
     }
     
     private static void Run(Command command)
     {
-        TextDisplay.TypeLine("You flee");
-        States.ChangeState(StateTypes.Exploring);
+        if (PalBattle.IsBattleActive)
+        {
+            Command runCommand = new Command { Verb = "run", Noun = "" };
+            PalBattle.HandleBattleCommand(runCommand);
+        }
+        else
+        {
+            TextDisplay.TypeLine("There's no active battle right now.");
+            States.ChangeState(StateTypes.Exploring);
+        }
     }
 }

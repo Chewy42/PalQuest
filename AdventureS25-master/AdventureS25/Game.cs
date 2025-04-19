@@ -36,6 +36,7 @@ public static class Game
         Map.Initialize();
         Items.Initialize();
         NPCs.Initialize();
+        Pals.Initialize(); // Initialize the Pals system
         Player.Initialize();
     }
 }

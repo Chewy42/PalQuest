@@ -48,7 +48,7 @@ public static class Conditions
         
         // Add condition for reading Professor Jon's note
         Condition readJonNote = new Condition(ConditionTypes.ReadJonNote);
-        readJonNote.AddToActivateList(ConditionActions.WriteOutput("You now know that Professor Jon wants to meet you at the Fusion Lab."));
+        readJonNote.AddToActivateList(ConditionActions.WriteOutput("You feel a weird urge to meet with Professor Jon."));
         Add(readJonNote);
         
         // Add condition for having Sandie Pal
