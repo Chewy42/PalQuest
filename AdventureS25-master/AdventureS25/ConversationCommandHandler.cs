@@ -159,14 +159,14 @@ public static class ConversationCommandHandler
         }
         else if (OfferType == "sandie_offer")
         {
-            TextDisplay.TypeLine("\"W-what? *BURP* Not take Sandie?! Are you out of your m-mind?! Look at me! I'm Professor Jon, motherf*cker! I turned myself into a *burp* professor! I'm PROFESSOR JOOOOON!\"");
-            TextDisplay.TypeLine("\"Listen here, you l-little piece of sh*t, Sandie has already chosen you, and a Pal's choice is f-final! That's just how the universe *burp* works, kid! Did you think you had a c-choice in this? HAHAHAHA!\"");
+            TextDisplay.TypeLine("\"W-what? *BURP* Not take Sandie?! Are you out of your m-mind?! Look at me! I'm Professor Jon, motherfucker! I turned myself into a *burp* professor! I'm PROFESSOR JOOOOON!\"");
+            TextDisplay.TypeLine("\"Listen here, you l-little piece of shit, Sandie has already chosen you, and a Pal's choice is f-final! That's just how the universe *burp* works, kid! Did you think you had a c-choice in this? HAHAHAHA!\"");
             
             // Add Sandie to player's pals collection anyway and set the condition
             Conditions.ChangeCondition(ConditionTypes.HasSandiePal, true);
             TextDisplay.TypeLine("You've received Sandie the Corgi Pal despite your objections!");
             
-            TextDisplay.TypeLine("\"Now you two are s-stuck together! *burp* That's science, b*tch!\"");
+            TextDisplay.TypeLine("\"Now you two are s-stuck together! *burp* That's computer science, biiitch!\"");
             TextDisplay.TypeLine("Type 'leave' to end the conversation.");
             AwaitingResponse = false;
         }
@@ -176,7 +176,7 @@ public static class ConversationCommandHandler
     {
         if (AwaitingResponse && CurrentNPC != null && CurrentNPC.Name == "Professor Jon")
         {
-            TextDisplay.TypeLine("\"W-w-wait! *BUUURP* Where do you think you're going?! We're not done yet, you ungrateful little turd! This is important s-science happening right here! Do you have any idea how many dimensions I had to travel through to find this Pal?! NINE! NINE DIMENSIONS!\"");
+            TextDisplay.TypeLine("\"W-w-wait! *BUUURP* Where do you think you're going?! We're not done yet, you ungrateful little turd! This is important computer s-science happening right here! Do you have any idea how many dimensions I had to travel through to find this Pal?! NINE! NINE DIMENSIONS!\"");
             return;
         }
         
